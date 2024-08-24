@@ -1,0 +1,39 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "name": "Skill With People",
+      "author": "Les Geblin",
+      "year": 1968,
+      "language": "English"
+    },
+    {
+      "id": 2,
+      "name": "Power of Subconcious Mind",
+      "author": "Joseph Murphy",
+      "year": 1999,
+      "language": "English"
+    },
+    {
+      "name": "Business of 21st century",
+      "author": "Robert kiyosaki",
+      "year": "1967",
+      "language": "English",
+      "id": 3
+    },
+    {
+      "name": "Go Giver",
+      "author": "Bob BurgS",
+      "year": "1789",
+      "language": "English",
+      "id": 4
+    },
+    {
+      "name": "Atomic Habits",
+      "author": "James Clear",
+      "year": "1999",
+      "language": "English",
+      "id": 5
+    }
+  ]
+}

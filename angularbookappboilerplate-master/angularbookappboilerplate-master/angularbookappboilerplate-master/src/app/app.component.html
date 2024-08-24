@@ -1,0 +1,104 @@
+<!-- Header is displayed here -->
+<app-header></app-header>
+
+<!-- Form for user entry is displayed here -->
+<!-- Complete the necessary binding and add the required validator to the input elements -->
+<span>{{ errorMessage }}</span>
+<div class="data-form">
+  <form #bookForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="bookname">Book Name</label>
+      <input  name="bookname" [(ngModel)]="book.name"
+        required
+        type="text"
+        class="form-control"
+        id="bookname"
+         #bookname="ngModel" placeholder="Book name" npattern="[A-Za-z]{0-7}">
+                <div [hidden]="bookname.valid || bookname.pristine" class="alert alert-danger">
+                    book Name is required
+                </div>
+  
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input
+        name="author"
+        [(ngModel)]="book.author"
+        required
+        type="text"
+        class="form-control"
+        id="author"
+        #author="ngModel" placeholder="Author name" npattern="[A-Za-z]{0-7}">
+                <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
+                   Author  is required
+                </div>
+      
+    </div>
+
+    <div class="form-group">
+      <label for="year">Year</label>
+      <input
+        name="year"
+        [(ngModel)]="book.year"
+        required
+        type="text"
+        class="form-control"
+        id="year"
+       #year="ngModel" placeholder="Year" npattern="[0-9]" minlength="4">
+       <div [hidden]="year.valid || year.pristine"
+          class="alert alert-danger">
+          <div [hidden]="!year.hasError('minlength')">Year should be mininum 4 digit</div>
+          <div [hidden]="!year.hasError('required')">Year is required</div>
+          <div [hidden]="!year.hasError('npattern')">Year numberr should be only numbers</div>
+  
+                </div>
+
+
+      
+    </div>
+
+    <div class="form-group">
+      <label for="language">Language</label>
+      <input
+        name="language"
+        [(ngModel)]="book.language"
+        required
+        type="text"
+        class="form-control"
+        id="language"
+        #language="ngModel" placeholder="language" npattern="[A-Za-z]{0-7}">
+                <div [hidden]="language.valid || language.pristine" class="alert alert-danger">
+                    language is required
+                </div>
+    
+    </div>
+    <button type="submit" class="btn btn-primary">Add Book</button>
+  </form>
+</div>
+
+<!-- Data will be displayed as table here -->
+
+<div class="data-table">
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">S No.</th>
+        <th scope="col" colspan="2">Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">Year</th>
+        <th scope="col">Language</th>
+      </tr>
+    </thead>
+    <!-- Perform the appropriate data binding here -->
+    <tbody>
+      <tr *ngFor="let book of books">
+        <th scope="row">{{ 1  }}</th>
+        <td colspan="2">{{ book.name }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.year }}</td>
+        <td>{{ book.language }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
